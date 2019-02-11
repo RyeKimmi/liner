@@ -1,5 +1,6 @@
 from display import *
 from draw import *
+import random
 
 screen = new_screen()
 
@@ -32,7 +33,23 @@ draw_line(250, 0, 250, 500, screen, slopeun)
 /\/\/\ TESTING CASES /\/\/\
 '''
 
+R = [ 255, 0, 0 ]
+G = [ 0, 255, 0 ]
+B = [ 0, 0, 255 ]
+Y = [ 255, 255, 0 ]
+M = [ 255, 0, 255 ]
+C = [ 0, 255, 255 ]
+W = [ 255, 255, 255 ]
 
+for j in range(10):
+    for i in range(51):
+        draw_line(random.randint(0,2*i), random.randint(0,2*i), random.randint(2*i,8*i), random.randint(2*i,8*i), screen, R)    
+        R[0] -= 5
+        R[1] += 3
+        R[2] += 3
+        i += 1
+    R = [ 255, 0, 0 ]
+    j += 1
 
 display(screen)
 save_extension(screen, 'img.png')
